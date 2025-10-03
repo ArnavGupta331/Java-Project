@@ -10,10 +10,7 @@ const db = new sqlite3.Database(DB_PATH, (err) => {
     console.log('📊 Connected to SQLite database');
   }
 });
-
-// Initialize database tables
 db.serialize(() => {
-  // Users table
   db.run(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     email TEXT UNIQUE NOT NULL,
@@ -22,8 +19,6 @@ db.serialize(() => {
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
   )`);
-
-  // Validation history table
   db.run(`CREATE TABLE IF NOT EXISTS validations (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER,
@@ -35,8 +30,6 @@ db.serialize(() => {
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users (id)
   )`);
-
-  // User sessions table (alternative to express-session store)
   db.run(`CREATE TABLE IF NOT EXISTS sessions (
     id TEXT PRIMARY KEY,
     user_id INTEGER NOT NULL,
@@ -47,3 +40,4 @@ db.serialize(() => {
 });
 
 module.exports = db;
+
