@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login • Fake News Source Validator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+    <main class="container" data-theme="dark">
+        <section class="card" role="region" aria-labelledby="title">
+            <header class="card__header">
+                <div class="topbar">
+                    <div class="topbar__left">
+                        <h1 id="title">Login</h1>
+                    </div>
+                    <div class="topbar__right">
+                        <button id="themeToggle" class="btn btn--ghost" aria-label="Toggle theme">🌙</button>
+                        <a class="btn btn--ghost" href="index.html">Back</a>
+                    </div>
+                </div>
+                <p class="subtitle">Sign in to save your validation history and get personalized analysis.</p>
+            </header>
+            <div class="card__body">
+                <form id="loginForm">
+                    <label class="input-label" for="email">Email</label>
+                    <input id="email" class="input input--text" type="email" placeholder="you@example.com" required>
+
+                    <label class="input-label" for="password" style="margin-top:12px;">Password</label>
+                    <input id="password" class="input input--text" type="password" placeholder="••••••••" required>
+
+                    <button class="btn" type="submit" style="margin-top:16px;">Login</button>
+                </form>
+                <div id="loginMsg" class="result" aria-live="polite"></div>
+                
+                <div style="margin-top: 20px; text-align: center;">
+                    <a href="#" id="registerToggle" style="color: var(--accent); text-decoration: none;">Need an account? Register</a>
+                </div>
+            </div>
+            <footer class="card__footer">
+                <small>Secure authentication with encrypted passwords.</small>
+            </footer>
+        </section>
+    </main>
+
+    <script src="login.js"></script>
+</body>
+</html>
+
+

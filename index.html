@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Source Validator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="dark">
+    <main class="container" data-theme="dark">
+        <section class="card" role="region" aria-labelledby="title">
+            <header class="card__header">
+                <div class="topbar">
+                    <div class="topbar__left">
+                        <h1 id="title">Fake News Source Validator</h1>
+                    </div>
+                    <div class="topbar__right">
+                        <button id="themeToggle" class="btn btn--ghost" aria-label="Toggle theme">🌙</button>
+                        <a id="authLink" class="btn btn--ghost" href="login.html">Login</a>
+                    </div>
+                </div>
+                <p class="subtitle">Paste a headline or article text and validate using simple heuristic checks. No data leaves your browser.</p>
+            </header>
+            <div class="card__body">
+                <label class="input-label" for="newsInput">Headline or Article Text</label>
+                <textarea id="newsInput" class="input" rows="8" placeholder="Paste text here..."></textarea>
+
+                <div class="source-row">
+                    <label for="sourceInput" class="input-label small">Optional: Source URL or domain</label>
+                    <input id="sourceInput" class="input input--text" type="text" placeholder="e.g. example.com or https://news.example.com/article">
+                </div>
+
+                <button id="validateBtn" class="btn" aria-label="Validate text">Validate</button>
+
+                <div id="result" class="result" aria-live="polite"></div>
+
+                <details class="explain" id="explain" open>
+                    <summary>How this works</summary>
+                    <ul>
+                        <li>Keyword and phrase heuristics (clickbait, conspiratorial wording)</li>
+                        <li>Length and punctuation anomalies</li>
+                        <li>Suspicious formatting (ALL CAPS, too many emojis/!!)</li>
+                        <li>Optional domain sanity checks (free-hosting TLDs, typo domains)</li>
+                    </ul>
+                </details>
+            </div>
+            <footer class="card__footer">
+                <small>Client-side demo. Not definitive. Use critical thinking.</small>
+            </footer>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
